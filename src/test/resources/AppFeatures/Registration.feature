@@ -36,20 +36,20 @@ Feature: Registration Flow
     When Click on the Start button
     And Enter user credentials for registration
       |username	 |password|
-      |pegasuseller@gmail.com|Test@1234|
+      |pegasusuiseller@gmail.com|Test@1234|
     And Select Privacy Policy Term
     And click on Next button
     Then Verify User sees "Check your corporate email for a message with the code to continue." message on the page
-    When User enter the email verification code for "pegasuseller@gmail.com" as "seller"
+    When User enter the email verification code for "pegasusuiseller@gmail.com" as "seller"
     And click on Next button
-    And Verify User get the QR Auth CODE for authentication for "pegasuseller@gmail.com" and enter
+    And Verify User get the QR Auth CODE for authentication for "pegasusuiseller@gmail.com" and enter
     And Click on Create Account button
     Then Verify User navigate to Login Screen
     When Enter User credentials for Login
       |username	 |password|
-      |pegasuseller@gmail.com|Test@1234|
+      |pegasusuiseller@gmail.com|Test@1234|
     And Click on Login Button
-    Then Verify User Navigate to authentication page and enter Code for "pegasuseller@gmail.com" user
+    Then Verify User Navigate to authentication page and enter Code for "pegasusuiseller@gmail.com" user
     And Click on Enter button
     Then verify user navigate to Profile Page
     When User logout from profile page

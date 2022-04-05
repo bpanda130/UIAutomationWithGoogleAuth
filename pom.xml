@@ -13,7 +13,7 @@
 		<cucumber.version>6.9.0</cucumber.version>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
-		<serenity.version>2.4.25</serenity.version>
+<!--		<serenity.version>2.4.25</serenity.version>-->
 		<serenity.maven.version>2.3.12</serenity.maven.version>
 		<serenity.cucumber.version>2.4.25</serenity.cucumber.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -199,6 +199,12 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.6</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -223,26 +229,44 @@
 
 			<!-- ******************sequential Execution with JUnit *************************** -->
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId> 
-				<version>3.0.0-M3</version> <executions> <execution> <goals> <goal>integration-test</goal> 
-				</goals> <configuration> <includes> UNCOMMENT BELOW LINE- To execute feature 
-				files with a single runner <include>**/MyTestRunners.java</include> UNCOMMENT 
-				BELOW LINE - To execute feature files with multiple runners <include>**/*Runner.java</include> 
-				</includes> UNCOMMENT BELOW 3 LINES - To execute using parallel or combination 
-				option <parallel>classes</parallel> <threadCount>4</threadCount> <perCoreThreadCount>true</perCoreThreadCount> 
-				UNCOMMENT BELOW 3 LINES - To execute using forking or combination option 
-				<forkCount>2</forkCount> <reuseForks>true</reuseForks> <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory> 
-				</configuration> </execution> </executions> </plugin> -->
+			 <plugin>
+				 <groupId>org.apache.maven.plugins</groupId>
+				 <artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				 <executions>
+					 <execution>
+						 <goals>
+							 <goal>integration-test</goal>
+						</goals>
+						 <configuration>
+							 <includes>
+<!--								 UNCOMMENT BELOW LINE- To execute feature files with a single runner -->
+								 <include>**/MyTestRunners.java</include>
+<!--								 UNCOMMENT BELOW LINE - To execute feature files with multiple runners -->
+<!--								 <include>**/*Runner.java</include>-->
+							</includes>
+<!--							 UNCOMMENT BELOW 3 LINES - To execute using parallel or combination option -->
+<!--							 <parallel>classes</parallel> -->
+<!--							 <threadCount>4</threadCount> -->
+<!--							 <perCoreThreadCount>true</perCoreThreadCount>-->
+<!--								UNCOMMENT BELOW 3 LINES - To execute using forking or combination option-->
+								<forkCount>2</forkCount>
+							 	<reuseForks>true</reuseForks>
+							 	<reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory>
+						 </configuration>
+					 </execution>
+				 </executions>
+			 </plugin>
 
 			<!-- ******************Serenity Report Execution with JUnit *************************** -->
 
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.version}</version>
 				<configuration>
 					<includes>
-						<include>**/SerenityTestRunner.java</include>
+						<include>**/MyTestRunners.java</include>
 					</includes>
 					<parallel>methods</parallel>
 					<threadCount>4</threadCount>
@@ -266,7 +290,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 		</plugins>
 	</build>
 
